@@ -18,8 +18,8 @@ while continuar == True:
 
         print("\nDigte a moeda final ")
         finalCurrency = input()
-        resp = requests.get("http://free.currconv.com/api/v7/convert?q="+initialCurrency+"_"+finalCurrency+"&compact=ultra&apiKey=bffd1f34eb73b1af930e").json()
-        conversao = resp[initialCurrency+"_"+finalCurrency]
+        json = requests.get("http://free.currconv.com/api/v7/convert?q="+initialCurrency+"_"+finalCurrency+"&compact=ultra&apiKey=bffd1f34eb73b1af930e").json()
+        conversao = json[initialCurrency+"_"+finalCurrency]
         print("1 " + initialCurrency + " equivale a " + str(conversao) + " " + finalCurrency)
         conversaoMoedas = open("conversaoMoedas.csv", "w+")
         valorCSV = initialCurrency+"," + str(conversao) + "," + finalCurrency
